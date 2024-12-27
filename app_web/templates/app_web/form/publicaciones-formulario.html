@@ -1,0 +1,23 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Blog Online | Publicaciones
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <h1 class="text-center">Crear Publicacion</h1>
+        <p class="text-center fw-bold fst-italic">Aca Aca puedes crear una Publicacion</p>
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} {# Esto es obligatorio #}
+          {{ publicacion_form.as_p }}
+          <button type="submit">Crear</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

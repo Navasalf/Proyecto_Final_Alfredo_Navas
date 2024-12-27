@@ -1,0 +1,62 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Blog Online | Inicio
+{% endblock %}
+
+{% block contenido %}
+  <section id="scroll">
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'app_web/assets/img/2.jpg' %}" alt="Persona estudiando concentrada" />
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">¡Desata tu Genio Creativo!</h2>
+            <p>¿Listo para sumergirte en un mundo de conocimiento y diversión? ¡Este es tu lugar, el Blog Donde Aprender es una Aventura!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'app_web/assets/img/1.jpg' %}" alt="Estudiante utilizando un ordenador portátil en un entorno cómodo" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">¡Explora un Universo de Aprendizaje!</h2>
+            <p>¿Te pica la curiosidad? ¡Perfecto! Aquí encontrarás temas fascinantes, desde ciencia y tecnología hasta arte y cultura. ¡Prepárate para expandir tus horizontes!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'app_web/assets/img/3.jpg' %}" alt="Grupo de estudiantes colaborando en un proyecto" />
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">¡A tu Ritmo, a tu Estilo!</h2>
+            <p>¿Clases aburridas? ¡Eso se acabó! Aprende cuando quieras, donde quieras y como quieras. ¡Aquí tú decides el ritmo!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

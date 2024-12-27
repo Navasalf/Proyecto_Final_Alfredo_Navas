@@ -1,0 +1,21 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Blog Online | Editar Publicacion
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{ publicacion_form.as_p }}
+
+          <button type="summit" class="btn btn-primary">Editar Publicacion</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

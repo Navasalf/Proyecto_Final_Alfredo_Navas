@@ -1,0 +1,81 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Publicaciones Generales
+{% endblock %}
+
+{% block contenido %}
+  <style>
+    .card {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      position: relative;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-ver-mas-detalles {
+      margin-left: 10px;
+      background-color: #cccccc;
+      color: #333333;
+      border-color: #cccccc;
+    }
+    
+    .card-img-top {
+      max-height: 350px;
+    }
+  </style>
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4">Publicaciones</h1>
+    <div class="row justify-content-center">
+      {% if publicaciones %}
+        {% for publicacion in publicaciones %}
+          <div class="col-md-8 col-lg-6 mb-4">
+            <div class="card h-100">
+              {% if publicacion.imagen_portada %}
+                <img src="{{ publicacion.imagen_portada.url }}" class="card-img-top" alt="{{ publicacion.titulo }}" />
+              {% endif %}
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ publicacion.titulo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ publicacion.subtitulo }}</h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text">
+                    <small class="text-muted">Publicado por {{ publicacion.autor }} el {{ publicacion.fecha_publicacion }}</small>
+                  </p>
+
+                  {% if publicacion.autor == request.user %}
+                    <div class="dropup">
+                      <button class="btn btn-sm btn-outline-secondary dropdown-toggle py-0 px-1" type="button" id="dropdownMenuButton{{ publicacion.id }}" data-bs-toggle="dropdown" aria-expanded="false" style="all: unset; border: 1px solid #6c757d; border-radius: 4px;"><i class="fas fa-ellipsis-v"></i></button>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ publicacion.id }}">
+                        <li>
+                          <a class="dropdown-item" href="{% url 'editar-publicacion' publicacion.id %}">Editar</a>
+                        </li>
+                        <li>
+                          <form action="{% url 'eliminar-publicacion' publicacion.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="dropdown-item" onclick="return confirm('¿Estás seguro de eliminar a {{ publicacion.titulo }}?')">Eliminar</button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
+                  {% endif %}
+
+                  <a href="{% url 'detalle-publicacion' publicacion.id %}" method="POST" class="btn btn-ver-mas-detalles">Ver más detalles</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-12 text-center">
+          <p>No hay publicaciones disponibles.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

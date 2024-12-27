@@ -1,0 +1,40 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Blog Online | Acerca de mi
+{% endblock %}
+
+{% block contenido %}
+  <section id="about" class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0">
+            <div class="card-body p-5">
+              <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                  <img class="img-fluid rounded-circle mb-4 mb-md-0" src="{% static 'app_web/assets/img/4.jpg' %}" alt="Mi foto" style="max-width: 200px;" />
+                </div>
+                <div class="col-md-8">
+                  <h2 class="card-title mb-3">¡Hola! Soy Alfredo Navas</h2>
+                  <p class="card-text">Soy un estudiante de desarrollo web apasionado por la tecnología y la creación de experiencias digitales. Este blog surge como un proyecto personal dentro de mis estudios, una oportunidad para explorar, aprender y compartir mis conocimientos en el fascinante mundo del desarrollo web.</p>
+                  <p class="card-text">En este espacio, documento mi aprendizaje, comparto mis descubrimientos y exploro diversas tecnologías, desde el desarrollo frontend con HTML, CSS y JavaScript, hasta el backend con el lenguaje de Python con el frameworks de Django. Mi objetivo es consolidar mis conocimientos, conectar con otros desarrolladores y, sobre todo, inspirar a otros estudiantes que se inician en este camino.</p>
+                  <p class="card-text">Estoy convencido de que la mejor forma de aprender es practicando y compartiendo. Por eso, este blog no solo es un registro de mi progreso, sino también una invitación a la colaboración y al debate constructivo.</p>
+                  <div class="mt-4">
+                    <a href="#contacto" class="btn btn-light me-2">Contáctame</a>
+                    <a href="{% url 'publicaciones-generales' %}" class="btn btn-outline-secondary">Ver publicaciones</a>
+                  </div>
+
+                  <div class="mt-4 github-link-container">
+                    <a href="https://github.com/Navasalf" class="btn btn-link me-2 github-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i> GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
