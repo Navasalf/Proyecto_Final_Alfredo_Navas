@@ -48,7 +48,7 @@
                     <small class="text-muted">Publicado por {{ publicacion.autor }} el {{ publicacion.fecha_publicacion }}</small>
                   </p>
 
-                  {% if publicacion.autor == request.user %}
+{% if publicacion.autor == request.user or request.user.is_superuser %}
                     <div class="dropup">
                       <button class="btn btn-sm btn-outline-secondary dropdown-toggle py-0 px-1" type="button" id="dropdownMenuButton{{ publicacion.id }}" data-bs-toggle="dropdown" aria-expanded="false" style="all: unset; border: 1px solid #6c757d; border-radius: 4px;"><i class="fas fa-ellipsis-v"></i></button>
                       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ publicacion.id }}">
@@ -60,6 +60,18 @@
                             {% csrf_token %}
                             <button type="submit" class="dropdown-item" onclick="return confirm('¿Estás seguro de eliminar a {{ publicacion.titulo }}?')">Eliminar</button>
                           </form>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="{% url 'enviar-mensaje' publicacion.autor.id %}">Enviar mensaje al creador</a>
+                        </li>
+                      </ul>
+                    </div>
+                  {% else %}
+                    <div class="dropup">
+                      <button class="btn btn-sm btn-outline-secondary dropdown-toggle py-0 px-1" type="button" id="dropdownMenuButton{{ publicacion.id }}" data-bs-toggle="dropdown" aria-expanded="false" style="all: unset; border: 1px solid #6c757d; border-radius: 4px;"><i class="fas fa-ellipsis-v"></i></button>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ publicacion.id }}">
+                        <li>
+                          <a class="dropdown-item" href="{% url 'enviar-mensaje' publicacion.autor.id %}">Enviar mensaje al creador</a>
                         </li>
                       </ul>
                     </div>

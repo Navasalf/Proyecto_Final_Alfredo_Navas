@@ -1,0 +1,31 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+Blog Online | Mis Mensajes
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container mt-5">
+    <h1>Mensajes Recibidos</h1>
+
+    {% if mensajes %}
+        <div class="list-group">
+            {% for mensaje in mensajes %}
+                <div class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">De: {{ mensaje.remitente.username }}</h5>
+                        <small>{{ mensaje.fecha_creacion|date:"d/m/Y H:i" }}</small> {# Usa fecha_creacion y formatea la fecha #}
+                    </div>
+                    <p class="mb-1">{{ mensaje.contenido }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            No tienes mensajes.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

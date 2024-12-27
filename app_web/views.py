@@ -11,7 +11,7 @@ def inicio (request):
     return render (request, "app_web/inicio.html")
 
 
-@login_required
+
 def publicaciones_generales(request):
     publicaciones = Publicacion.objects.all().order_by('-fecha_publicacion') 
     contexto = {'publicaciones': publicaciones} 

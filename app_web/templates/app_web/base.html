@@ -48,6 +48,9 @@
               <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Perfil</button>
                 <ul class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'enviar-mensaje' %}">enviar mensajes</a>
+                  <a class="dropdown-item" href="{% url 'ver-mensaje' %}">ver mensajes</a>
+                  <li><hr class="dropdown-divider"></li>
                   <li>
                     <a class="dropdown-item" href="{% url 'mostrar-perfil' %}">Ver Perfil</a>
                   </li>

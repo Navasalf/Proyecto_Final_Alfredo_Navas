@@ -1,0 +1,29 @@
+{% extends 'app_web/base.html' %}
+{% load static %}
+
+{% block title %}
+  Blog Online | Enviar Mensaje
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <h1 class="text-center">Enviar Mensaje</h1>
+
+        <form method="post">
+          {% csrf_token %}
+          <select name="destinatario">
+              {% for usuario in usuarios %}
+                  <option value="{{ usuario.username }}">{{ usuario.username }}</option>
+              {% endfor %}
+          </select>
+          <textarea name="contenido" rows="4" cols="50"></textarea>
+          <button type="submit">Enviar</button>
+      </form>
+      
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
