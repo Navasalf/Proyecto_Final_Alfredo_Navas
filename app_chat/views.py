@@ -6,6 +6,12 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
+def seleccionar_destinatario(request):
+    usuarios = User.objects.exclude(username=request.user.username)
+    return render(request, "app_chat/enviar_mensajes.html", {"usuarios": usuarios})
+
+
+@login_required
 def enviar_mensaje(request, usuario_id):
     destinatario = get_object_or_404(User, pk=usuario_id)
     

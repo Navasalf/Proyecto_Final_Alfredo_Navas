@@ -1,5 +1,8 @@
 Proyecto FInal 
 
+link Video de Youtube: funcionalidad de la interfaz:
+https://youtu.be/I_OjJheKxmw
+
 Descripción Este proyecto, desarrollado en Python utilizando el framework Django, es una aplicación web tipo blog, a traves de la cual puedes crear un usuario y guardar post y ver los post de las otras personas, al igual que puedes comunicarte con otras personas.
 
 Tecnologías Utilizadas Python: Lenguaje de programación principal. Django: marco web Python. SQLite: Base de datos ligera para el desarrollo. HTML: Lenguaje de marcado para estructurar las páginas web. CSS: Lenguaje de estilo para diseñar la apariencia de las páginas web.
